@@ -30,7 +30,7 @@ namespace TSTuring2015.Speech.SpeechRec
                 case "Korean":
                     return new CultureInfo("ko-KR");
                 case "Portuguese":
-                    return new CultureInfo("pt-PT");
+                    return new CultureInfo("pt-BR");
                 case "Indonesian":
                     return new CultureInfo("id-ID");
                 case "Cantonese":
