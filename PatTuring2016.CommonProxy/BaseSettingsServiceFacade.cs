@@ -4,14 +4,12 @@
 // </copyright>
 //-----------------------------------------------------------------------
 
-using PatTuring2016.Common;
 using PatTuring2016.Common.ScreenModels;
 
 namespace PatTuring2016.CommonProxy
 {
     public abstract class BaseSettingsServiceFacade
     {
-        protected abstract void SetSampleFile(SampleFiles sampleFiles);
         protected abstract void SetSettings(MatchSettings settings);
         public abstract MatchSettings GetSettings();
         public abstract SampleSettings GetSampleSettings();
@@ -43,7 +41,6 @@ namespace PatTuring2016.CommonProxy
             }
 
             SetSettings(oldsettings);
-            SetSampleFile(oldSamples.SampleFiles);
         }
     }
 }

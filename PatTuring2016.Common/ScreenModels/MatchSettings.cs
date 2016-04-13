@@ -4,8 +4,6 @@
 // </copyright>
 //-----------------------------------------------------------------------
 
-using AilTuring2016.ScreenModels;
-
 namespace PatTuring2016.Common.ScreenModels
 {
     public class MatchSettings
@@ -21,8 +19,10 @@ namespace PatTuring2016.Common.ScreenModels
             IllocutionaryForce = IllocutionaryForce.Source;
             PersonChange = PersonChange.Source;
             Characters = Display.Letters;
+            UserKey = string.Empty;
         }
 
+        public string UserKey { get; set; }
         public Match Edit { get; set; }
         public Match Last { get; set; }
 

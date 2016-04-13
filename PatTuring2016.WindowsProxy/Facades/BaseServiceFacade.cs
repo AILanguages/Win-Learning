@@ -11,15 +11,15 @@ namespace PatTuring2016.WindowsProxy.Facades
 {
     public class BaseServiceFacade
     {
-        public static void SetUpFacade(ISessionService sessionService)
+        public static void SetUpFacade()//ISessionService sessionService)
         {
             // ensure valid link to server in place - create a new user key!
-            var request = new GetIDRequest { UserKey = WindowsContext.UserKey };
-            var response = sessionService.GetID(request);
+            //var request = new GetIDRequest { UserKey = WindowsContext.UserKey };
+            //var response = sessionService.GetID(request);
 
-            if (!response.Success) return;
+            //if (!response.Success) return;
 
-            WindowsContext.UserKey = response.UserKey;
+            //WindowsContext.UserKey = response.UserKey;
         }
     }
 }

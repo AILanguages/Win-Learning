@@ -27,8 +27,9 @@ namespace PatTuring2016.WindowsProxy.Facades
             {
                 UserKey = WindowsContext.UserKey
             };
-            var response = _settingsClientProxy.GetSettings(request);
-            return response.Settings;
+            //var response = _settingsClientProxy.GetSettings(request);
+            //return response.Settings;
+            return new MatchSettings();
         }
 
         public override SampleSettings GetSampleSettings()
@@ -39,17 +40,6 @@ namespace PatTuring2016.WindowsProxy.Facades
             };
             var response = _settingsClientProxy.GetSampleSettings(request);
             return response.Settings;
-        }
-
-        protected override void SetSampleFile(SampleFiles sampleFiles)
-        {
-            var settingsReturned = new SampleSettingsPresentation();
-
-            var samples = new SampleSettings { SampleFiles = sampleFiles };
-            var request = new ChangeSampleSettingsRequest { UserKey = WindowsContext.UserKey, Settings = samples };
-            var response = _settingsClientProxy.SetSampleSettings(request);
-            settingsReturned.Settings = response.Settings;
-            settingsReturned.SettingsChanged = response.Success;
         }
 
         protected override void SetSettings(MatchSettings settings)

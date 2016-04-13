@@ -40,13 +40,21 @@ namespace PatTuring2016.Speech
             }
         }
 
-        private void LogMultiLanguageText(string text)
+        private async void LogMultiLanguageText(string text)
         {
             RepeatInput(text);
 
             foreach (var language in _speaker.ckLstTargets.CheckedItems)
             {
-                SayLanguageAndTarget(text, language.ToString());
+                // say language in source language
+                _speakText.AppendThis(language.ToString(), _speaker.textBox2);
+                _speakText.SpeakWithVoice(language.ToString(), _speaker.cbxSource.Text);
+
+                // target language speaker
+                var sourcetext = await _turingTranslate.Translate(text, language.ToString());
+
+                _speakText.AppendThis(sourcetext, _speaker.textBox2);
+                _speakText.SpeakWithVoice(sourcetext, language.ToString());
             }
         }
 
@@ -58,15 +66,6 @@ namespace PatTuring2016.Speech
             _speakText.SpeakWithVoice(text, _speaker.cbxSource.Text);
         }
 
-        private void SayLanguageAndTarget(string text, string language)
-        {
-            // say language in source language
-            WriteAndSpeakSource(language, _speaker.cbxSource.Text);
-
-            // target language speaker
-            WriteAndSpeakTarget(text, language);
-        }
-        
         private void LogTextConvertAndSpeak(string text, string target)
         {
             _speakText.AppendThis(text, _speaker.textBox1);
@@ -77,29 +76,17 @@ namespace PatTuring2016.Speech
             WriteAndSpeakTranslation(text, target);
         }
 
-        private void WriteAndSpeakTranslation(string text, string target)
+        private async void WriteAndSpeakTranslation(string text, string target)
         {
             if (target.EndsWith("English"))
             {
                 target = "English";
             }
 
+            var translate = await _turingTranslate.Translate(text, target);
+
             var sourcetext = _speaker.rdAccentOnly.Checked ? text :
-                _turingTranslate.Translate(text, _speaker, target);
-
-            _speakText.AppendThis(sourcetext, _speaker.textBox2);
-            _speakText.SpeakWithVoice(sourcetext, target);
-        }
-
-        private void WriteAndSpeakSource(string text, string target)
-        {
-            _speakText.AppendThis(text, _speaker.textBox2);
-            _speakText.SpeakWithVoice(text, target);
-        }
-
-        private void WriteAndSpeakTarget(string text, string target)
-        {
-            var sourcetext = _turingTranslate.Translate(text, _speaker, target);
+             translate;
 
             _speakText.AppendThis(sourcetext, _speaker.textBox2);
             _speakText.SpeakWithVoice(sourcetext, target);

@@ -12,34 +12,33 @@ using PatTuring2016.CommonProxy;
 
 namespace PatTuring2016.WindowsProxy.Facades
 {
-    public class ConverseServiceFacade : BaseConverseServiceFacade
-    {
-        public ConverseServiceFacade(IConverseService converseService) : base(converseService)
-        { }
+    //public class ConverseServiceFacade : BaseConverseServiceFacade
+    //{
+    //    public ConverseServiceFacade(IConverseService converseService) : base(converseService)
+    //    { }
 
-        public ConversationData UpdateConversation(Match match)
-        {
-            var request = new NewMatchRequest { UserKey = WindowsContext.UserKey, DataToMatch = match };
+    //    public ConversationData UpdateConversation(Match match)
+    //    {
+    //        var request = new NewMatchRequest { UserKey = WindowsContext.UserKey, DataToMatch = match };
 
-            var response = ConverseService.GetConversationData(request);
+    //        var response = ConverseService.GetConversationData(request);
 
-            return response.Conversation;
-        }
+    //        return response.Conversation;
+    //    }
 
-        public ConversationData GetContext(Match match)
-        {
-            var request = new NewMatchRequest { UserKey = WindowsContext.UserKey, DataToMatch = match };
+    //    public ConversationData GetContext(Match match)
+    //    {
+    //        var request = new NewMatchRequest { UserKey = WindowsContext.UserKey, DataToMatch = match };
 
-            var response = ConverseService.GetContext(request);
+    //        var response = ConverseService.GetContext(request);
 
-            return response.Conversation;
-        }
+    //        return response.Conversation;
+    //    }
 
-        public void RestartConversation(Match match)
-        {
-            var request = new NewMatchRequest { UserKey = WindowsContext.UserKey, DataToMatch = match };
+    //    public void RestartConversation(Match match)
+    //    {
+    //        var request = new NewMatchRequest { UserKey = WindowsContext.UserKey, DataToMatch = match };
 
-            ConverseService.RestartConversation(request);
-        }
-    }
+    //        ConverseService.RestartConversation(request);
+    //    }
 }

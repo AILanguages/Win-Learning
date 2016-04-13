@@ -45,18 +45,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AbstractServiceClientFactory.cs" />
-    <Compile Include="BaseConverseServiceFacade.cs" />
-    <Compile Include="ConverseServiceClientProxy.cs" />
-    <Compile Include="GetaMatch.cs" />
+    <Compile Include="BaseSettingsServiceFacade.cs" />
     <Compile Include="MatchPatternPresentation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SampleSettingsPresentation.cs" />
-    <Compile Include="ScreenPresentation.cs" />
     <Compile Include="SettingsPresentation.cs" />
-    <Compile Include="SettingsServiceClientProxy.cs" />
-    <Compile Include="BaseSettingsServiceFacade.cs" />
-    <Compile Include="BaseTranslateServiceFacade.cs" />
-    <Compile Include="TranslateServiceClientProxy.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PatTuring2016.Common\PatTuring2016.Common.csproj">
