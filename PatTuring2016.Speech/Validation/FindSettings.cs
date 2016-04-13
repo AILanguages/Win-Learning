@@ -1,4 +1,10 @@
-﻿using PatTuring2016.Common;
+﻿//-----------------------------------------------------------------------
+// <copyright file="FindSettings.cs" company="Thinking Solutions Pty Ltd">
+//     Copyright (c) Thinking Solutions 2015. All rights reserved.
+// </copyright>
+//-----------------------------------------------------------------------
+
+using PatTuring2016.Common;
 using PatTuring2016.Common.ScreenModels;
 using PatTuring2016.Speech.Forms;
 using System;

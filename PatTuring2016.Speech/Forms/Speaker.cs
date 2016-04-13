@@ -4,18 +4,17 @@
 // </copyright>
 //-----------------------------------------------------------------------
 
+using PatTuring2016.Common;
+using StructureMap;
 using System;
 using System.Windows.Forms;
-using PatTuring2016.Common;
-using PatTuring2016.Common.ScreenModels;
-using StructureMap;
 
 namespace PatTuring2016.Speech.Forms
 {
     public partial class Speaker : Form
     {
         private SpeechController _speechController;
-        
+
         public Speaker()
         {
             InitializeComponent();

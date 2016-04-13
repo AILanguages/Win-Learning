@@ -87,7 +87,6 @@
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="AbstractLanguageFactory.cs" />
-    <Compile Include="Settings.cs" />
     <Compile Include="TranslateAndSpeak.cs" />
     <Compile Include="Forms\SyllabusForm.cs">
       <SubType>Form</SubType>
