@@ -17,7 +17,8 @@ namespace PatTuring2016.Speech.Validation
         {
             MatchSettings = new MatchSettings();
         }
-        public MatchSettings MatchSettings { get; set; }
+
+        public MatchSettings MatchSettings { get; }
 
         public void Update(string target, ContextForm contextForm)
         {

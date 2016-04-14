@@ -12,7 +12,6 @@ using System.Windows.Forms;
 
 namespace PatTuring2016.Speech.VoiceSyllabus
 {
-
     public class GetSyllabusFile
     {
         internal static BaseSyllabus OpenFile()

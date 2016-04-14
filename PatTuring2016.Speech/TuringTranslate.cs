@@ -17,13 +17,12 @@ namespace PatTuring2016.Speech
     public class TuringTranslate
     {
         private readonly TranslateSettings _translateSettings;
+        private string _url;
 
         public TuringTranslate(TranslateSettings translateSettings)
         {
             _translateSettings = translateSettings;
-            var service = (string)Settings.Default["DataServer"]; // the validated address of the service
-                                                                  // var facades = new GetFacades(service);
-
+            _url = (string)Settings.Default["DataServer"]; // the validated address of the service
         }
 
         internal void Setup(ContextForm contextForm)
@@ -40,7 +39,7 @@ namespace PatTuring2016.Speech
 
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri("http://localhost:14048/");
+                client.BaseAddress = new Uri("http://" + _url + "/");
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 

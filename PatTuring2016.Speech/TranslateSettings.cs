@@ -6,9 +6,7 @@
 
 using PatTuring2016.Common.ScreenModels;
 using PatTuring2016.Speech.Forms;
-using PatTuring2016.Speech.Properties;
 using PatTuring2016.Speech.Validation;
-using PatTuring2016.WindowsProxy;
 
 namespace PatTuring2016.Speech
 {
@@ -19,8 +17,6 @@ namespace PatTuring2016.Speech
 
         public TranslateSettings()
         {
-            var service = (string)Settings.Default["DataServer"]; // the validated address of the service
-            var facades = new GetFacades(service);
             _findSettings = new FindSettings();
         }
 
