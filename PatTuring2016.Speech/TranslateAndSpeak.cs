@@ -6,6 +6,7 @@
 
 using PatTuring2016.Speech.Forms;
 using PatTuring2016.Speech.SpeechRec;
+using System.Threading.Tasks;
 
 namespace PatTuring2016.Speech
 {
@@ -27,12 +28,12 @@ namespace PatTuring2016.Speech
             _turingTranslate.Setup(contextForm);
         }
 
-        internal void HandleText(string text)
+        internal async Task HandleText(string text)
         {
             // OK, not a command, look for syllabus
             if (!(_speaker.ckLstTargets.CheckedItems.Count > 1))
             {
-                LogTextConvertAndSpeak(text, _speaker.GetSingleLanguage());
+                await LogTextConvertAndSpeak(text, _speaker.GetSingleLanguage());
             }
             else
             {
@@ -66,18 +67,13 @@ namespace PatTuring2016.Speech
             _speakText.SpeakWithVoice(text, _speaker.cbxSource.Text);
         }
 
-        private void LogTextConvertAndSpeak(string text, string target)
+        private async Task LogTextConvertAndSpeak(string text, string target)
         {
             _speakText.AppendThis(text, _speaker.textBox1);
             if (_speaker.rbnTargetOnly.Checked) return;
 
             _speakText.SpeakWithVoice(text, _speaker.cbxSource.Text);
 
-            WriteAndSpeakTranslation(text, target);
-        }
-
-        private async void WriteAndSpeakTranslation(string text, string target)
-        {
             if (target.EndsWith("English"))
             {
                 target = "English";

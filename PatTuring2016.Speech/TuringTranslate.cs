@@ -44,7 +44,7 @@ namespace PatTuring2016.Speech
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
                 // HTTP POST
-                HttpResponseMessage response = await client.PostAsJsonAsync("api/v1/translate", match);
+                HttpResponseMessage response = await client.PostAsJsonAsync("api/v1/translate/", match);
                 var matchupdate = await response.Content.ReadAsAsync<Match>();
 
                 if (response.IsSuccessStatusCode)

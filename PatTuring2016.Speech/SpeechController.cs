@@ -10,6 +10,7 @@ using PatTuring2016.Speech.LanguageCheckers;
 using PatTuring2016.Speech.SpeechRec;
 using PatTuring2016.Speech.VoiceSyllabus;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace PatTuring2016.Speech
 {
@@ -83,13 +84,13 @@ namespace PatTuring2016.Speech
             }
         }
 
-        private void SpeakSyllabus(BaseSyllabus syllabus)
+        private async void SpeakSyllabus(BaseSyllabus syllabus)
         {
             if (syllabus == null) return;
 
             foreach (var phrase in syllabus.Commands)
             {
-                HandleSpeech(phrase);
+                await HandleSpeech(phrase);
             }
         }
 
@@ -217,7 +218,7 @@ namespace PatTuring2016.Speech
             _speaker.SetSingleLanguage(newTarget);
         }
 
-        internal void HandleSpeech(string text)
+        internal async Task HandleSpeech(string text)
         {
             if (SpeechIsCommand(text))
             {
@@ -225,7 +226,7 @@ namespace PatTuring2016.Speech
                 return;
             }
 
-            _translateAndSpeak.HandleText(text);
+            await _translateAndSpeak.HandleText(text);
         }
     }
 }
